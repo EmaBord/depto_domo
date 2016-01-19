@@ -10,8 +10,10 @@ class Task(Process):
 		self.start_up 		= start_up
 		self.end   		= end
 		self.ejecute 	= ejecute
-		self._stop = threading.Event()
+		print "creado ..."
+
 	def run(self):		
+		print "comenzando ..."
 		while not self.begin():		
 			time.sleep(1)
 		self.ejecute.action()

@@ -7,6 +7,7 @@ class Light(models.Model):
 	arduino_path   = models.CharField(max_length =100)
 	pin	   		   = models.IntegerField()
 	estado 		   = models.BooleanField(default= False)
+	
 
 
 

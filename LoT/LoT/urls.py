@@ -8,4 +8,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
      url(r'^', include('lights.urls')),
+     url(r'^', include('automation.urls')),
 ]

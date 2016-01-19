@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block title%}
+Ligths
+{% endblock%}
+
+{% block lights_active %}class="active"{% endblock%}
+{% block content%}
+
+   <div class="row">
+    
+    <div class="col-md-4">
+      <div class="well">
+      <form class="form-horizontal" method="post" action"{% url 'lights' %}">
+        {% csrf_token %}
+        <input type="hidden" name="modify_staff" value="1">
+        <input type="hidden" name="idl" value="{{light.id}}">
+        <div class="form-group">
+          <label for="inputNombre" class="col-md-2 control-label">Nombre</label>
+          <div class="col-md-10">
+            <input type="text" name="nombre" class="form-control" id="inputNombre" value='{{light.nombre}}'>
+          </div>
+        </div>
+        
+
+        <div class="form-group">          
+          <div class="col-md-12">
+            <button class="btn btn-success btn-raised btn-block"  >Modificar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    
+  </div>
+
+
+  
+
+ 
+{% endblock %}
