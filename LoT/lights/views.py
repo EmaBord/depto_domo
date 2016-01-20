@@ -13,11 +13,10 @@ class LightView(TemplateView):
     template_modify            	= 'lights/modify.html' 
     template_modify_staff       = 'lights/modify_staff.html'      
     
-    """
+
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(LightsView, self).dispatch(*args, **kwargs)
-    """
+        return super(LightView, self).dispatch(*args, **kwargs)
     
 
     def get(self, request, *args, **kwargs):  

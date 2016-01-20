@@ -5,21 +5,25 @@ import time
 start and end we are string format date and hour: AAAA-MM-DD HH:mm
 """
 class Task(Process):		
-	def __init__(self,ejecute,start_up ,end ):
+	def __init__(self,ejecute,automation,start_up ,end ):
 		Process.__init__(self) 
 		self.start_up 		= start_up
 		self.end   		= end
 		self.ejecute 	= ejecute
-		print "creado ..."
+		self.automation = automation
+		
 
 	def run(self):		
-		print "comenzando ..."
 		while not self.begin():		
 			time.sleep(1)
 		self.ejecute.action()
+		self.automation.estado = "ejecutandose"
+		self.automation.save()
 		while not self.final():
 			time.sleep(1)
 		self.ejecute.stop()
+		self.automation.estado = "finalizado"
+		self.automation.save()
 	def begin(self):
 		now = str(datetime.now())
 		if self.start_up <= now:
@@ -43,13 +47,4 @@ class InterfaceObject():
 		 raise NotImplementedError("Debe implementar el metodo action")
 	def stop(self):
 		 raise NotImplementedError("Debe implementar el metodo stop")
-"""
-	
-tas = Task(5,'2016-01-18 18:20','2016-01-18 18:21')	
 
-tas.start()
-raw_input()
-tas.terminate()
-		
-		
-"""

@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
+from helpers.arduino import Arduino
+ARDUINOS = {'/dev/ttyUSB0':Arduino('/dev/ttyUSB0')}
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from helpers.arduino import Arduino
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'lights',
     'helpers',
-    'automation'
+    'automation',
+    'autenticacion'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,6 +110,6 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 
-ARDUINOS = {'/dev/ttyUSB1':Arduino('/dev/ttyUSB1')}
+
 
 TASKS = {}
