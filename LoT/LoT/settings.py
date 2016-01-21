@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 from helpers.arduino import Arduino
 ARDUINOS = {'/dev/ttyUSB0':Arduino('/dev/ttyUSB0')}
+
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -113,3 +116,9 @@ STATIC_URL = '/static/'
 
 
 TASKS = {}
+
+
+
+from start import run
+
+run()

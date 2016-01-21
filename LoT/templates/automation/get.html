@@ -63,6 +63,12 @@ Automatización
               {% ifequal automation.estado "finalizado" %}
                 <button class="btn btn-raised btn-default btn-xs" data-container="body" data-toggle="popover" data-placement="bottom" data-content="La tarea se ejecutó correctamente"><i class="material-icons">alarm_off</i></button>
               {% endifequal%}
+              {% ifequal automation.estado "no concluyo por corte electrico" %}
+                <button class="btn btn-raised btn-warning btn-xs" data-container="body" data-toggle="popover" data-placement="bottom" data-content="no concluyo por corte electrico"><i class="material-icons">alarm_off</i></button>
+              {% endifequal%}
+              {% ifequal automation.estado "corte electrico" %}
+                <button class="btn btn-raised btn-warning btn-xs" data-container="body" data-toggle="popover" data-placement="bottom" data-content="no se ejecutó por corte electrico"><i class="material-icons">alarm_off</i></button>
+              {% endifequal%}
             </td>  
               
             <td>
